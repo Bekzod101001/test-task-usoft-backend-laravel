@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('create-daily-invoices')->daily();
+        $schedule->command('create-and-charge-invoices')->daily();
     }
 
     /**
