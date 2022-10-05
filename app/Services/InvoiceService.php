@@ -10,7 +10,11 @@ use Illuminate\Support\Str;
 
 class InvoiceService
 {
-    public static function createDailyInvoiceFromUsers() {
+    public static function createAndChargeDaily() {
+        self::createDaily();
+        self::chargeDaily();
+    }
+    public static function createDaily() {
         $users = User::query()
             ->chargeable()
             ->get();
@@ -19,6 +23,7 @@ class InvoiceService
         $invoices = [];
         foreach($users as $user) {
             $invoices[] = [
+                'date' => Carbon::now(),
                 'uuid' => Str::uuid()->toString(),
                 'user_id' => $user->id,
                 'price' => 500,
@@ -31,7 +36,7 @@ class InvoiceService
         Invoice::insert($invoices);
     }
 
-    public static function charge(Invoice $invoice) {
+    public static function chargeSingle(Invoice $invoice) {
         $invoice->update([
             'attempt' => $invoice->attempt + 1,
             'last_attempt' => Carbon::now(),
@@ -48,7 +53,7 @@ class InvoiceService
         ]);
     }
 
-    public static function chargeDailyInvoices () {
+    public static function chargeDaily () {
         $unchargedInvoices = Invoice::query()
             ->where('status', false)
             ->get();

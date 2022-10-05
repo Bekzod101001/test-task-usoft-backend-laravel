@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\Services\InvoiceService;
 use Illuminate\Console\Command;
 
-class CreateDailyInvoicesCommand extends Command
+class CreateAndChargeDailyInvoicesCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:create-daily-invoices';
+    protected $signature = 'command:create-and-charge-invoices';
 
     /**
      * The console command description.
@@ -28,7 +28,7 @@ class CreateDailyInvoicesCommand extends Command
      */
     public function handle()
     {
-        InvoiceService::createDailyInvoiceFromUsers();
-        InvoiceService::chargeDailyInvoices();
+        InvoiceService::createDaily();
+        InvoiceService::chargeDaily();
     }
 }

@@ -33,6 +33,6 @@ class ChargeInvoiceJob implements ShouldQueue
      */
     public function handle()
     {
-        InvoiceService::charge($this->invoice);
+        InvoiceService::chargeSingle($this->invoice);
     }
 }
