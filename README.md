@@ -2,13 +2,13 @@ TEST TASK: Backend PHP & Laravel. Project is dockerized with Laravel Sail. https
 
 Steps to run:
 
-
+0. composer install
 1. mv .env.example .env (just for test purposes all "credentials" are in .env.example file)
-2. sail up -d 
-3. sail artisan migrate
-3. sail artisan db:seed
-4. sail artisan queue:work
-5. run command by hand for testing purposes, just for not waiting untill task scheduler will fire for creating & charging invoices - sail artisan command:create-and-charge-invoice
+2. ./vendor/bin/sail up -d 
+3. ./vendor/bin/sail artisan migrate
+4. ./vendor/bin/sail artisan db:seed
+5. ./vendor/bin/sail artisan queue:work
+6. run command by hand for testing purposes, just for not waiting untill task scheduler will fire for creating & charging invoices - ./vendor/bin/sail artisan command:create-and-charge-invoice
 ___________
 
 Test Task Description:
