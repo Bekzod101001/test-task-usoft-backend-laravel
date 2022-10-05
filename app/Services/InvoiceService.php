@@ -33,7 +33,10 @@ class InvoiceService
             ];
         }
 
-        Invoice::insert($invoices);
+        $chunks = array_chunk($invoices, 2000);
+        foreach($chunks as $chunk) {
+            Invoice::insert($chunk);
+        }
     }
 
     public static function chargeSingle(Invoice $invoice) {

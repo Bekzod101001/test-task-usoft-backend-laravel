@@ -28,7 +28,6 @@ class CreateAndChargeDailyInvoicesCommand extends Command
      */
     public function handle()
     {
-        InvoiceService::createDaily();
-        InvoiceService::chargeDaily();
+        InvoiceService::createAndChargeDaily();
     }
 }

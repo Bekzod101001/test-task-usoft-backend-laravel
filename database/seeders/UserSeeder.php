@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 1000000; $i++) {
             $data[] = [
                 'name' => fake()->name(),
-                'phone' => fake()->unique()->phoneNumber(),
+                'phone' => fake()->phoneNumber(),
                 'is_verified' => rand(0, 20) !== 0,
                 'is_stop' => rand(0, 20) === 0,
                 'is_business' => rand(0, 20) === 0,
