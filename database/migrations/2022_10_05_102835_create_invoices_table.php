@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tariff')->nullable();
             $table->integer('status')->nullable();
             $table->integer('attempt')->default(0);
+            $table->timestamp('date')->nullable();
             $table->timestamp('last_attempt')->nullable();
             $table->timestamp('charged_at')->nullable();
             $table->foreignId('user_id')
