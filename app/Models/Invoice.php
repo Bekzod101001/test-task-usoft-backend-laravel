@@ -10,5 +10,5 @@ class Invoice extends Model
 {
     use HasFactory, UuidTrait;
 
-    public $fillable = ['attempt', 'last_attempt', 'price', 'charged_at', 'tariff', 'phone', 'status', 'user_id'];
+    public $fillable = ['attempt', 'last_attempt', 'price', 'charged_at', 'tariff', 'phone', 'status', 'user_id', 'date'];
 }
