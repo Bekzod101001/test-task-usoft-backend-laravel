@@ -26,7 +26,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        \App\Models\User::factory()->count(1000000)->create();
     }
 
     /**
